@@ -42,9 +42,9 @@ def login(request):
 
 
 def logout(request):
-    fo = LogoutForm(request.POST)
+    # fo = LogoutForm(request.POST)
     auth.logout(request)
-    return render_to_response("derg/base.html",{'form': fo})
+    return render_to_response("derg/base.html")
 
-
+# ,{'form': fo}
 

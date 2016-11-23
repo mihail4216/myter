@@ -3,10 +3,11 @@
 {% csrf_token %}
 
 <div>| В сети {{ user.username }}</div>
-<div>
-    {{ form.logout }}
-
-    <input type="submit" value="logout"></div>
+{#<div>#}
+{#    {{ form.logout }}#}
+{##}
+{#    <input type="submit" value="logout"></div>#}
+    <a href="/logout/">LOGOUT</a>
 </form>
 {% else %}<form method="post" action="/">
 | Пусто
