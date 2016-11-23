@@ -1,0 +1,27 @@
+{% if user.is_active %}
+    <form method="post" action="/logout/">
+{% csrf_token %}
+
+<div>| В сети {{ user.username }}</div>
+<div>
+    {{ form.logout }}
+
+    <input type="submit" value="logout"></div>
+</form>
+{% else %}<form method="post" action="/">
+| Пусто
+
+ <div><label for="username">Логин:</label>
+|{{ form.username }}
+</div>
+<div> <label for="password">Пароль:</label>
+|{{ form.password }}</div>
+<div>
+    {% csrf_token %}
+    <input  type="submit" value="login" >
+</div>
+{% if login_error %}
+<p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
+{% endif %}
+{% endif %}
+</form>
