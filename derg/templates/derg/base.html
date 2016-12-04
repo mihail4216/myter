@@ -1,28 +1,29 @@
 {% if user.is_active %}
-{#    <form method="post" action="/logout/">#}
-{#{% csrf_token %}#}
 
 <div>| В сети {{ user.username }}</div>
-{#<div>#}
-{#    {{ form.logout }}#}
-{##}
-{#    <input type="submit" value="logout"></div>#}
     <a href="/logout/">LOGOUT</a>
-{#</form>#}
-{% else %}<form method="post" action="/">
-| Пусто
-
- <div><label for="username">Логин:</label>
+{% else %}
+    <form method="post" action="/">
+<div><label for="username">Логин:</label>
 |{{ form.username }}
 </div>
 <div> <label for="password">Пароль:</label>
-|{{ form.password }}</div>
+|{{ form.password }}
+
+</div>
+
 <div>
     {% csrf_token %}
     <input  type="submit" value="login" >
 </div>
-{% if login_error %}
-<p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
-{% endif %}
-{% endif %}
+{#    {% if error %}{% else %}#}
+{#        <a>User not found</a>#}
+{##}
+{##}
+{#    {% endif %}#}
+
+
+
+{% if form.errors %}<a>User not found</a>{% endif %}
 </form>
+{% endif %}
